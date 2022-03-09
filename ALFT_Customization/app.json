@@ -1,0 +1,38 @@
+{
+  "id": "8d1efef5-f353-4888-ab44-c58bc0430e4f",
+  "name": "ALFT_Customization",
+  "publisher": "Softserve (Pvt) Ltd",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "screenshots": [],
+  "dependencies": [
+  {
+     "id": "dcd3126c-233d-4ed3-a839-361fb86ba0f0",
+     "publisher": "Softserve (Pvt) Ltd",
+     "name": "ALFT Costing",
+     "version": "1.0.0.0"
+  },
+  {
+    "id": "20709dd3-45c3-4992-b38b-e1ea8b6d6168",
+    "publisher": "Softserve (Pvt) Ltd",
+    "name": "ALFT Developmets",
+    "version": "1.0.0.0"
+  }
+  ],
+  "platform": "1.0.0.0",
+  "application": "18.0.0.0",
+  "idRanges": [
+    {
+      "from": 50400,
+      "to": 50800 
+    }
+  ],
+  "showMyCode": false,
+  "runtime": "4.1"
+}
