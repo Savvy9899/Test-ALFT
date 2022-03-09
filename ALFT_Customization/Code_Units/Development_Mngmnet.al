@@ -91,12 +91,4 @@ codeunit 50400 "Development Management"
     begin
         TransferShipmentHeader."Prod. Ord. No." := TransferHeader."Prod. Ord. No.";
     end;
-
-    // [EventSubscriber(ObjectType::Codeunit, 5704, 'OnAfterCreateItemJnlLine', '', true, true)]
-    // local procedure UpdateItemJLine(var itemJline: Record "Item Journal Line"; transferLine: Record "Transfer Line")
-    // begin
-    //     itemJline."Trans. Ord. Qty" := transferLine.Quantity;
-    // end;
-
-
 }

@@ -459,23 +459,26 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox10">
+                        <Textbox Name="reqQty">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!reqQty.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox10</rd:DefaultName>
+                          <rd:DefaultName>reqQty</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -490,23 +493,26 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox12">
+                        <Textbox Name="issuedQty">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!issuedQty.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox12</rd:DefaultName>
+                          <rd:DefaultName>issuedQty</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -521,23 +527,26 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox14">
+                        <Textbox Name="consumedFormat">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!consumedFormat.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <rd:DefaultName>consumedFormat</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -923,7 +932,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>3.22557cm</Height>
+        <Height>3.22558cm</Height>
         <Style />
       </Body>
       <Width>26.96104cm</Width>
@@ -998,6 +1007,24 @@ End Function
         </Field>
         <Field Name="Document_No_">
           <DataField>Document_No_</DataField>
+        </Field>
+        <Field Name="reqQty">
+          <DataField>reqQty</DataField>
+        </Field>
+        <Field Name="reqQtyFormat">
+          <DataField>reqQtyFormat</DataField>
+        </Field>
+        <Field Name="issuedQty">
+          <DataField>issuedQty</DataField>
+        </Field>
+        <Field Name="issuedQtyFormat">
+          <DataField>issuedQtyFormat</DataField>
+        </Field>
+        <Field Name="consumed">
+          <DataField>consumed</DataField>
+        </Field>
+        <Field Name="consumedFormat">
+          <DataField>consumedFormat</DataField>
         </Field>
       </Fields>
       <Query>

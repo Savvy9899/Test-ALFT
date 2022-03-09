@@ -21,7 +21,11 @@ report 50441 "Daily RM Req. Issue & Consump"
             { }
             column(Document_No_; "Document No.")
             { }
-            column(Trans__Ord__Qty; "Trans. Ord. Qty")
+            column(reqQty; "Trans. Ord. Qty")
+            { }
+            column(issuedQty; issuedQty)
+            { }
+            column(consumed; consumed)
             { }
 
             trigger OnAfterGetRecord()
@@ -34,6 +38,20 @@ report 50441 "Daily RM Req. Issue & Consump"
                 item.Get("Item No.");
                 if item."Inventory Posting Group" <> 'RM' then
                     CurrReport.Skip();
+
+                itemLed.Reset();
+                itemLed.SetRange("Prod. Ord. No.", "Prod. Ord. No.");
+                itemLed.SetRange("Entry Type", "Entry Type"::Transfer);
+                itemLed.SetRange("Document Type", "Document Type"::"Transfer Shipment");
+                itemLed.CalcFields(Quantity);
+                issuedQty := Abs(itemLed.Quantity);
+
+                itemLed.Reset();
+                itemLed.SetRange("Prod. Ord. No.", "Prod. Ord. No.");
+                itemLed.SetRange("Entry Type", "Entry Type"::Transfer);
+                itemLed.SetRange("Document Type", "Document Type"::"Transfer Receipt");
+                itemLed.CalcFields(Quantity);
+                consumed := Abs(itemLed.Quantity);
             end;
         }
     }
@@ -59,4 +77,8 @@ report 50441 "Daily RM Req. Issue & Consump"
 
     var
         item: Record Item;
+        itemLed: Record "Item Ledger Entry";
+        issuedQty: Decimal;
+        consumed: Decimal;
+        return: Decimal;
 }
