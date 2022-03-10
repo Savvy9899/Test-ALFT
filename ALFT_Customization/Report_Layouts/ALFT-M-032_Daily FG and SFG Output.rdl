@@ -456,7 +456,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Posting_Date</rd:DefaultName>
@@ -989,7 +991,7 @@
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Catergory.Value</Value>
+                      <Value>=Fields!itemType.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <TablixMembers>

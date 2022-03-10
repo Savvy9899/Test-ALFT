@@ -140,7 +140,6 @@ report 50426 "Customer Wise Invoice Report"
 
                     IF (TempSalesInvHedd."Posting Date" >= StAryDate[Inx]) AND
                        (TempSalesInvHedd."Posting Date" <= EdAryDate[Inx]) THEN BEGIN
-                        //  Message('St %1 - Ed %2', StAryDate[Inx], EdAryDate[Inx]);
                         TempSalesInvHedd.CalcFields("Amount Including VAT");
                         AryAmt[Inx] := TempSalesInvHedd."Amount Including VAT";
                     END;
@@ -198,8 +197,6 @@ report 50426 "Customer Wise Invoice Report"
             ERROR('Ending date must be month end date.');
         EdDate := CALCDATE('<' + FORMAT(NoOfBuckets - 1) + 'M>', StDate);
         EdDate := CALCDATE('<CM>', EdDate);
-        //IF EdDate <> InvEdDate THEN
-        // ERROR('Date range must be equal to number of buckets.');
 
         FOR Inx := 1 TO NoOfBuckets DO BEGIN
             StAryDate[Inx] := StDate;

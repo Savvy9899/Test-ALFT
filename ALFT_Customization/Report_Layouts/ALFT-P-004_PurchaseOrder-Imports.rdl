@@ -341,7 +341,7 @@
                     <Style>
                       <FontFamily>Calibri</FontFamily>
                       <FontWeight>Bold</FontWeight>
-                      <Format>d MMM yyyy</Format>
+                      <Format>d/MM/yyyy</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>

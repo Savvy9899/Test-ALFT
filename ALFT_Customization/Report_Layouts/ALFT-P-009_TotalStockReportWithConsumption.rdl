@@ -25,7 +25,7 @@
                   <Width>0.73425in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.98425in</Width>
+                  <Width>0.53633in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.58334in</Width>
@@ -1875,7 +1875,7 @@
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0.5in</Top>
             <Height>0.903in</Height>
-            <Width>23.60811in</Width>
+            <Width>23.16019in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1922,7 +1922,7 @@
         <Height>3.56362cm</Height>
         <Style />
       </Body>
-      <Width>59.9646cm</Width>
+      <Width>58.82689cm</Width>
       <Page>
         <PageHeight>21cm</PageHeight>
         <PageWidth>29.7cm</PageWidth>

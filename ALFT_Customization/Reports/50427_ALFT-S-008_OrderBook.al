@@ -25,8 +25,9 @@ report 50427 "Order Book"
                 salesHead: Record "Sales Header";
 
             begin
-                CurrentAmount := 0;
-                preAount := 0;
+                // CurrentAmount := 0;
+                // preAount := 0;
+
                 if salesPer.Get("Salesperson Code") then;
 
                 salesHead.Reset();
@@ -35,8 +36,10 @@ report 50427 "Order Book"
                 salesHead.SetRange("Sell-to Customer No.", "Sell-to Customer No.");
                 salesHead.SetRange("Salesperson Code", "Salesperson Code");
                 salesHead.SetFilter("Posting Date", '%1..%2', sDate, eDate);
-                salesHead.CalcFields("Amount Including VAT");
-                CurrentAmount := salesHead."Amount Including VAT";
+                if salesHead.FindFirst() then begin
+                    salesHead.CalcFields("Amount Including VAT");
+                    CurrentAmount := salesHead."Amount Including VAT";
+                end;
 
 
                 preSdate := CalcDate('CM-2M+1D', sDate);
@@ -48,8 +51,10 @@ report 50427 "Order Book"
                 salesHead1.SetRange("Sell-to Customer No.", "Sell-to Customer No.");
                 salesHead1.SetRange("Salesperson Code", "Salesperson Code");
                 salesHead1.SetFilter("Posting Date", '%1..%2', preSdate, preEdate);
-                salesHead1.CalcFields("Amount Including VAT");
-                preAount := salesHead1."Amount Including VAT";
+                if salesHead1.FindFirst() then begin
+                    salesHead1.CalcFields("Amount Including VAT");
+                    preAount := salesHead1."Amount Including VAT";
+                end;
 
             end;
         }

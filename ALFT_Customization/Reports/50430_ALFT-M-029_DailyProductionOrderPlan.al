@@ -8,7 +8,6 @@ report 50430 "Daily Production Order Plan"
     {
         dataitem("Prod. Order Line"; "Prod. Order Line")
         {
-            RequestFilterFields = "Starting Date";
             column(Line_No_; "Line No.")
             { }
             column(Starting_Date_Time; "Starting Date-Time")
@@ -40,10 +39,8 @@ report 50430 "Daily Production Order Plan"
                 prodRouting.SetRange("Routing No.", "Routing No.");
                 prodRouting.SetRange("Routing Reference No.", "Line No.");
                 prodRouting.SetRange("Prod. Order No.", "Prod. Order No.");
-                if prodRouting.Find() then begin
-                    if prodRouting."No." <> mach then
-                        CurrReport.Skip()
-                    else
+                if prodRouting.FindFirst() then begin
+                    if prodRouting.Type = prodRouting.Type::"Machine Center" then
                         machine := prodRouting.Description;
                 end;
 
@@ -57,6 +54,11 @@ report 50430 "Daily Production Order Plan"
                     until prodOrderCom.Next() = 0;
             end;
 
+            trigger OnPreDataItem()
+            begin
+                SetRange("Starting Date", Sdate, EDate);
+            end;
+
         }
     }
 
@@ -68,10 +70,15 @@ report 50430 "Daily Production Order Plan"
             {
                 group(GroupName)
                 {
-                    field(mach; mach)
+                    field(Sdate; Sdate)
                     {
                         ApplicationArea = All;
-                        Caption = 'Machine';
+                        Caption = 'Start Date';
+                    }
+                    field(EDate; EDate)
+                    {
+                        ApplicationArea = All;
+                        Caption = 'End Date';
                     }
                 }
             }
@@ -84,7 +91,6 @@ report 50430 "Daily Production Order Plan"
                 action(ActionName)
                 {
                     ApplicationArea = All;
-
                 }
             }
         }
@@ -96,4 +102,6 @@ report 50430 "Daily Production Order Plan"
         prodOrderCom: Record "Prod. Order Component";
         baseRM: Text;
         mach: Code[20];
+        Sdate: Date;
+        EDate: Date;
 }

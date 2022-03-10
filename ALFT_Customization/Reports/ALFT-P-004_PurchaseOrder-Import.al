@@ -99,7 +99,7 @@ report 50404 PurchaseOrderImport
                     comRec.Get;
                     comRec.CalcFields(Picture);
                     vatPostSet.Get("VAT Bus. Posting Group", "VAT Prod. Posting Group");
-                    contact.Get("Purchase Header"."Buy-from Contact No.");
+                    if contact.Get("Purchase Header"."Buy-from Contact No.") then;
                     if buyFromCountry.Get("Purchase Header"."Buy-from Country/Region Code") then;
                     if shipCountry.Get("Purchase Header"."Ship-to Country/Region Code") then;
                     if shipType.Get("Purchase Header"."Shipment Method Code") then;

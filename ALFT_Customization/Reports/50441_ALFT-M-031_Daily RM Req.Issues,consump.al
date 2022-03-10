@@ -35,7 +35,7 @@ report 50441 "Daily RM Req. Issue & Consump"
 
             trigger OnPreDataItem()
             begin
-                item.Get("Item No.");
+                if item.Get("Item No.") then;
                 if item."Inventory Posting Group" <> 'RM' then
                     CurrReport.Skip();
 

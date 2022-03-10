@@ -58,6 +58,18 @@ report 50436 "PO Summary"
                 CrdStDate := RStDate;
                 CrdEdDate := REdDate;
             end;
+
+            trigger OnAfterGetRecord()
+            begin
+                TempSalesHedd.Init();
+                TempSalesHedd."No." := "No.";
+                TempSalesHedd."Sell-to Customer No." := "Sell-to Customer No.";
+                TempSalesHedd."Sell-to Customer Name" := "Sell-to Customer Name";
+                TempSalesHedd."Document Date" := "Document Date";
+                CalcFields("Amount Including VAT");
+                TempSalesHedd."Amount Including VAT" := "Amount Including VAT";
+                TempSalesHedd.Insert();
+            end;
         }
         dataitem("Sales Cr.Memo Header"; "Sales Cr.Memo Header")
         {
@@ -83,7 +95,6 @@ report 50436 "PO Summary"
         dataitem(Integer; Integer)
         {
             DataItemTableView = SORTING(Number) WHERE(Number = FILTER(1 ..));
-
             column(DocNo; TempSalesHedd."No.")
             { }
             column(CusNo; TempSalesHedd."Sell-to Customer No.")
@@ -163,7 +174,6 @@ report 50436 "PO Summary"
 
                     IF (TempSalesHedd."Document Date" >= StAryDate[Inx]) AND
                        (TempSalesHedd."Document Date" <= EdAryDate[Inx]) THEN BEGIN
-                        //  Message('St %1 - Ed %2', StAryDate[Inx], EdAryDate[Inx]);
                         TempSalesHedd.CalcFields("Amount Including VAT");
                         AryAmt[Inx] := TempSalesHedd."Amount Including VAT";
                     END;
@@ -274,5 +284,4 @@ report 50436 "PO Summary"
         AryAmt: array[12] of Decimal;
         MonthRangeDown: array[12] of Text[10];
         TempSalesHedd: Record "Sales Header" temporary;
-
 }

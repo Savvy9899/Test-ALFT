@@ -18,7 +18,7 @@ report 50442 "Daily FG and SFG Output"
             { }
             column(Prod__Ord__No_; "Prod. Ord. No.")
             { }
-            column(Quantity; Quantity)
+            column(Quantity; Abs(Quantity))
             { }
             column(Unit_of_Measure_Code; "Unit of Measure Code")
             { }
@@ -37,7 +37,10 @@ report 50442 "Daily FG and SFG Output"
                     itemType := 'SFG'
                 else
                     if item."Inventory Posting Group" = 'FG' then
-                        itemType := 'FG';
+                        itemType := 'FG'
+                    else
+                        CurrReport.Skip();
+
             end;
         }
     }

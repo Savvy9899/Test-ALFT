@@ -120,7 +120,7 @@ page 50402 MaterialRequestNotesCard
             part(TransferLines; "Transfer Order Subform")
             {
                 ApplicationArea = Location;
-                Editable = sync;
+                // Editable = sync;
                 SubPageLink = "Document No." = FIELD("No."),
                               "Derived From Line No." = CONST(0);
                 UpdatePropagation = Both;
